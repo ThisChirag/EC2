@@ -1,0 +1,1 @@
+{"root":["./src/app.ts","./src/cache.ts","./src/server.ts","./src/controllers/usercreate.ts","./src/db/memorydb.ts","./src/db/models.ts","./src/middlewares/authenticatetoken.ts","./src/middlewares/ratelimiter.ts","./src/routes/userroutes.ts","./src/utils /generatorlogic.ts","./src/utils /hashpassword.ts","./src/utils /prisma.ts"],"version":"5.7.2"}
