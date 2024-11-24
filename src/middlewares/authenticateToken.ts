@@ -2,7 +2,6 @@ import { NextFunction, Request, Response } from "express";
 import jwt from 'jsonwebtoken';
 import dotenv from 'dotenv';
 import { TokenPayload } from "../utils /GeneratorLogic";
-import { ACTIVE_TOKENS } from "../db/memoryDB";
 import prisma from "../utils /prisma";
 import { getTokenFromUser_Id } from "../cache";
 
