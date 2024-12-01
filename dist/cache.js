@@ -1,6 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.setNewToken = exports.getTokenFromUser_Id = exports.storeToken = exports.connectReddis = void 0;
+exports.getOtp = exports.setOtp = exports.setNewToken = exports.getTokenFromUser_Id = exports.storeToken = exports.connectReddis = void 0;
 const redis_1 = require("redis");
 const redisClient = (0, redis_1.createClient)();
 redisClient.on('error', (error) => {
@@ -43,3 +43,11 @@ const setNewToken = async (user_id, token, ttl) => {
     }
 };
 exports.setNewToken = setNewToken;
+const setOtp = async (key, otp, ttl) => {
+    await redisClient.setEx(key, ttl, otp);
+};
+exports.setOtp = setOtp;
+const getOtp = async (key) => {
+    return await redisClient.get(key);
+};
+exports.getOtp = getOtp;

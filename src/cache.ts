@@ -1,4 +1,4 @@
-import { error } from "console";
+
 import { createClient } from "redis";
 
 const redisClient = createClient();
@@ -45,4 +45,14 @@ export const setNewToken = async(user_id: string, token: string, ttl: number): P
         console.log("Error in refreshing new token", error);
         return false;
     }
+}
+
+export const setOtp = async(key:string, otp: string, ttl: number) =>{
+    
+    await redisClient.setEx(key, ttl, otp);
+}
+
+export const getOtp = async(key:string): Promise<string | null> =>{
+
+    return await redisClient.get(key);
 }

@@ -5,6 +5,7 @@ import { hashingPassword, verifyingPassword } from "../utils /hashPassword";
 import prisma from "../utils /prisma";
 import { storeToken, setNewToken, connectReddis} from "../cache";
 
+
 connectReddis();
 
 const saltRounds = parseInt(process.env.SALT_ROUNDS?? "10");
